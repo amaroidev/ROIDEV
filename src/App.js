@@ -13,18 +13,11 @@ import { FaBars, FaMoon, FaSun } from 'react-icons/fa';
 function App() {
   const [isSideNavVisible, setSideNavVisible] = useState(false);
   const [isDarkMode, setDarkMode] = useState(() => {
-    const savedTheme = localStorage.getItem('theme');
-    return savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches);
+    return localStorage.getItem('theme') === 'dark';
   });
 
   useEffect(() => {
-    if (isDarkMode) {
-      document.body.classList.add('dark-mode');
-      document.documentElement.classList.add('dark');
-    } else {
-      document.body.classList.remove('dark-mode');
-      document.documentElement.classList.remove('dark');
-    }
+    document.body.classList.toggle('dark-mode', isDarkMode);
     localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
   }, [isDarkMode]);
 
@@ -37,6 +30,10 @@ function App() {
   const closeSideNav = () => {
     setSideNavVisible(false);
     document.body.classList.remove('sidenav-open');
+  };
+
+  const toggleDarkMode = () => {
+    setDarkMode(!isDarkMode);
   };
 
   return (
