@@ -83,12 +83,17 @@
 /* Mobile optimizations */
 @media (max-width: 768px) {
   .sidenav {
-    width: 80%;
+    width: 85%; /* Wider sidebar on mobile */
     max-width: 300px;
   }
   
   .sidenav a {
     padding: 20px;
-    font-size: 1.2rem;
+    font-size: 1.2rem; /* Larger text for touch targets */
+  }
+  
+  /* Additional mobile spacing */
+  .sidenav li {
+    margin: 5px 0;
   }
 }

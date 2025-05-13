@@ -224,6 +224,31 @@ body.light-mode {
   display: block;
 }
 
+/* Enhance mobile navigation controls */
+@media (max-width: 768px) {
+  .sidenav-toggle {
+    width: 45px;
+    height: 45px;
+    top: 10px;
+    left: 10px;
+    font-size: 1.2rem;
+    background: var(--accent);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  }
+  
+  /* Add a subtle animation to draw attention to the toggle */
+  @keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+  }
+  
+  /* Apply animation only on initial page load for mobile */
+  .sidenav-toggle {
+    animation: pulse 1s ease-in-out 3;
+  }
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
   .App {
