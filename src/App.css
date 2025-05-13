@@ -181,3 +181,58 @@ body.light-mode {
   z-index: 1;
   padding-top: 60px; /* Add some extra padding at the top */
 }
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .App {
+    padding: 0;
+  }
+  
+  .sidenav-toggle, .dark-mode-toggle {
+    width: 30px;
+    height: 30px;
+    font-size: 1rem;
+  }
+  
+  .hero-container {
+    flex-direction: column;
+    padding: 20px 10px;
+  }
+  
+  .hero h1 {
+    font-size: 2rem;
+  }
+  
+  .hero h2 {
+    font-size: 1.2rem;
+  }
+  
+  .section-title {
+    font-size: 1.8rem;
+  }
+}
+
+/* Small devices (phones) */
+@media (max-width: 480px) {
+  .hero {
+    padding: 60px 15px 30px;
+  }
+  
+  .profile-picture {
+    width: 180px;
+    height: 180px;
+  }
+  
+  .projects-content, .skills-content, .contact-methods {
+    grid-template-columns: 1fr;
+  }
+  
+  .navbar ul {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .navbar li {
+    margin: 5px 0;
+  }
+}

@@ -58,14 +58,32 @@
 @media (max-width: 768px) {
   .navbar-container {
     flex-direction: column;
-    gap: 15px;
+    padding: 10px 5px;
   }
   
   .logo {
-    margin-left: 0; /* Remove margin on mobile */
+    margin-bottom: 10px;
+    margin-left: 0;
+    justify-content: center;
   }
   
   .nav-links {
-    margin-right: 0; /* Remove margin on mobile */
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-right: 0;
+  }
+  
+  .nav-links li {
+    margin: 5px 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    padding: 10px 0;
+  }
+  
+  .nav-links a {
+    font-size: 0.9rem;
   }
 }

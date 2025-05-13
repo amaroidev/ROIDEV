@@ -30,3 +30,38 @@ body {
   color: var(--text);
   transition: background-color 0.5s ease, color 0.5s ease;
 }
+
+/* Base responsive settings */
+* {
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Viewport settings */
+@media (max-width: 768px) {
+  html {
+    font-size: 95%;
+  }
+  
+  body {
+    overflow-x: hidden;
+  }
+  
+  section {
+    padding: 40px 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  html {
+    font-size: 90%;
+  }
+  
+  section {
+    padding: 30px 10px;
+  }
+}

@@ -122,3 +122,38 @@
   color: var(--accent);
   transform: translateY(-3px);
 }
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .hero-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-image {
+    margin-bottom: 20px;
+  }
+  
+  .hero-text {
+    padding: 0 10px;
+  }
+  
+  .profile-picture {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+  
+  .hero h2 {
+    font-size: 1.1rem;
+  }
+  
+  .hero h3 {
+    font-size: 0.9rem;
+  }
+}
