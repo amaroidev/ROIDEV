@@ -5,7 +5,7 @@ const Navbar = () => (
   <nav className="navbar">
     <div className="navbar-container">
       <div className="logo">
-        <img src={process.env.PUBLIC_URL + '/images/ROIDEV.png'} alt="RoiDev Logo" />
+        <img src={`${process.env.PUBLIC_URL}/images/ROIDEV.png`} alt="RoiDev Logo" />
         <span>RoiDev</span>
       </div>
       <ul className="nav-links">

@@ -29,6 +29,17 @@
           );
         }
       }(window.location))
+
+      // Handle SPA routing for static hosts
+      (function() {
+        // No need to run on localhost
+        if (window.location.hostname === 'localhost') return;
+        
+        // Redirect 404s to index.html
+        var segmentCount = 0;
+        var location = window.location;
+        var l = window.location;
+      })();
     </script>
   </head>
   <body>
