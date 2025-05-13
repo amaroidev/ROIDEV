@@ -91,13 +91,41 @@ a, button {
 }
 
 .sidenav-toggle {
-  top: 20px;
+  top: 15px; /* Position at the same level as navbar content */
   left: 20px;
+  background: var(--accent);
+  color: var(--nav-bg);
+  border: none;
+  padding: 8px;
+  font-size: 1.2rem;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 1100; /* Make sure it's above other elements */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 35px;
+  height: 35px;
 }
 
 .dark-mode-toggle {
-  top: 20px;
+  position: fixed;
+  top: 15px; /* Same height as the sidebar toggle */
   right: 20px;
+  background: var(--accent);
+  color: var(--nav-bg);
+  border: none;
+  padding: 8px;
+  font-size: 1.2rem;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 1100; /* Ensure it's above other elements */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 35px;
+  height: 35px;
+  transition: background 0.3s;
 }
 
 .sidenav-toggle:hover, .dark-mode-toggle:hover {
@@ -145,4 +173,11 @@ body.dark-mode {
 body.light-mode {
   background-color: #ffffff;
   color: #000000;
+}
+
+/* Additional fix to ensure the Contact section doesn't have overlapping issues */
+#contact {
+  position: relative;
+  z-index: 1;
+  padding-top: 60px; /* Add some extra padding at the top */
 }

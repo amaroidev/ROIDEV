@@ -7,6 +7,15 @@
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
+.navbar-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between; /* Keep space between logo and nav links */
+  align-items: center;
+  padding: 0 20px;
+}
+
 .navbar ul {
   list-style: none;
   display: flex;
@@ -28,4 +37,35 @@
 
 .navbar a:hover {
   color: #61dafb;
-} 
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  margin-left: 50px; /* Add margin instead of padding to the container */
+}
+
+.logo img {
+  height: 25px;
+  width: auto;
+  margin-right: 8px;
+}
+
+.nav-links {
+  margin-right: 50px; /* Add margin to the right side for the dark mode toggle */
+}
+
+@media (max-width: 768px) {
+  .navbar-container {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .logo {
+    margin-left: 0; /* Remove margin on mobile */
+  }
+  
+  .nav-links {
+    margin-right: 0; /* Remove margin on mobile */
+  }
+}

@@ -6,14 +6,14 @@ const Hero = () => (
   <section id="hero" className="hero">
     <div className="hero-container">
       <div className="hero-image">
-        <img src="/profile.jpg" alt="Richard Kwaku Opoku" className="profile-picture" />
+        <img src={process.env.PUBLIC_URL + '/profile.jpg'} alt="Richard Kwaku Opoku" className="profile-picture" />
       </div>
       <div className="hero-text">
         <h1>Hi, I'm Richard Kwaku Opoku</h1>
         <h2>200L Computer Science & Engineering Student</h2>
         <h3>University of Mines and Technology, Ghana</h3>
         <div className="hero-buttons">
-          <a href="/RICHARD KWAKU OPOKU.pdf" className="download-cv" download>
+          <a href={process.env.PUBLIC_URL + '/RICHARD KWAKU OPOKU.pdf'} className="download-cv" download>
             <FaDownload /> Download CV
           </a>
         </div>

@@ -9,9 +9,9 @@ const Projects = () => {
       description: 'A backend repository for a chemical factory, featuring employee management, inventory tracking, and RESTful API endpoints.',
       link: 'https://github.com/FCM4100819823/Inventory_System_Management',
       slides: [
-        { src: '/images/inventory1.png', alt: 'Inventory Dashboard' },
-        { src: '/images/inventory2.png', alt: 'Employee Management' },
-        { src: '/images/inventory3.png', alt: 'Inventory Tracking' }
+        { src: process.env.PUBLIC_URL + '/images/inventory1.png', alt: 'Inventory Dashboard' },
+        { src: process.env.PUBLIC_URL + '/images/inventory2.png', alt: 'Employee Management' },
+        { src: process.env.PUBLIC_URL + '/images/inventory3.png', alt: 'Inventory Tracking' }
       ]
     },
     {
@@ -19,9 +19,9 @@ const Projects = () => {
       description: 'A School Management CRUD Application built with Flask and Microsoft SQL Server.',
       link: 'https://github.com/FCM4100819823/SDMSFLASK',
       slides: [
-        { src: '/images/sdms1.png', alt: 'Dashboard' },
-        { src: '/images/sdms2.png', alt: 'Student Records' },
-        { src: '/images/sdms3.png', alt: 'Add Student Form' }
+        { src: process.env.PUBLIC_URL + '/images/sdms1.png', alt: 'Dashboard' },
+        { src: process.env.PUBLIC_URL + '/images/sdms2.png', alt: 'Student Records' },
+        { src: process.env.PUBLIC_URL + '/images/sdms3.png', alt: 'Add Student Form' }
       ]
     },
     {
@@ -29,9 +29,9 @@ const Projects = () => {
       description: 'An interactive 3D virtual environment created with A-Frame, featuring furniture, animations, and a 360-degree background.',
       link: 'https://github.com/FCM4100819823/A-Frame',
       slides: [
-        { src: '/images/aframe1.jpg', alt: '3D Scene Overview' },
-        { src: '/images/aframe2.jpg', alt: 'Furniture Models' },
-        { src: '/images/aframe3.jpg', alt: 'Animated Elements' }
+        { src: process.env.PUBLIC_URL + '/images/aframe1.jpg', alt: '3D Scene Overview' },
+        { src: process.env.PUBLIC_URL + '/images/aframe2.png', alt: 'Furniture Models' },
+        { src: process.env.PUBLIC_URL + '/images/aframe3.png', alt: 'Animated Elements' }
       ]
     },
     {
@@ -39,9 +39,9 @@ const Projects = () => {
       description: 'A collection of professional graphic design projects created using Canva, showcasing creativity and design expertise.',
       link: 'https://www.canva.com/design/DAGm8mxrr6o/_LxihyDZW0iFPFNJL-_oeA/edit?utm_content=DAGm8mxrr6o&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton',
       slides: [
-        { src: '/images/canva1.png', alt: 'Social Media Post Design' },
-        { src: '/images/canva2.png', alt: 'Business Card Design' },
-        { src: '/images/canva3.png', alt: 'Presentation Slide Design' }
+        { src: process.env.PUBLIC_URL + '/images/canva1.png', alt: 'Social Media Post Design' },
+        { src: process.env.PUBLIC_URL + '/images/canva2.png', alt: 'Business Card Design' },
+        { src: process.env.PUBLIC_URL + '/images/canva3.png', alt: 'Presentation Slide Design' }
       ]
     }
   ];
