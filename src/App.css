@@ -1,3 +1,36 @@
+/* Dark/light mode variables */
+:root {
+  --background: #ffffff;
+  --text: #121212;
+  --heading: #000000;
+  --accent: #61dafb;
+  --accent-hover: #4fa8c7;
+  --card-bg: #f5f5f5;
+  --section-bg: linear-gradient(to bottom, #f4f4f4, #e0e0e0);
+  --nav-bg: #ffffff;
+  --shadow: rgba(0, 0, 0, 0.1);
+}
+
+.dark {
+  --background: #121212;
+  --text: #ffffff;
+  --heading: #ffffff;
+  --accent: #61dafb;
+  --accent-hover: #4fa8c7;
+  --card-bg: #1e1e1e;
+  --section-bg: linear-gradient(to bottom, #181a1b, #222325);
+  --nav-bg: #181a1b;
+  --shadow: rgba(0, 0, 0, 0.4);
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--background);
+  color: var(--text);
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
 .App {
   text-align: center;
 }
@@ -35,4 +68,81 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+/* Add smooth transitions for hover effects */
+a, button {
+  transition: all 0.3s ease;
+}
+
+/* Toggle buttons styling */
+.sidenav-toggle, .dark-mode-toggle {
+  position: fixed;
+  background: var(--accent);
+  color: #000;
+  border: none;
+  padding: 12px;
+  font-size: 1.5rem;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 1100;
+  transition: background 0.3s, transform 0.3s;
+  box-shadow: 0 2px 10px var(--shadow);
+}
+
+.sidenav-toggle {
+  top: 20px;
+  left: 20px;
+}
+
+.dark-mode-toggle {
+  top: 20px;
+  right: 20px;
+}
+
+.sidenav-toggle:hover, .dark-mode-toggle:hover {
+  background: var(--accent-hover);
+  transform: scale(1.1);
+}
+
+/* Section styling */
+.hero, .about, .skills, .projects, .contact {
+  background: var(--section-bg);
+  padding: 80px 20px;
+  transition: background 0.5s ease;
+}
+
+/* Add animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes floatAnimation {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* Dark mode styles */
+body.dark-mode {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+body.light-mode {
+  background-color: #ffffff;
+  color: #000000;
 }

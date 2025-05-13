@@ -1,0 +1,49 @@
+.sidenav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 200px;
+  background: var(--sidenav-bg, #181a1b);
+  color: var(--sidenav-color, #ffffff);
+  padding: 20px 0;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  transform: translateX(0);
+  transition: transform 0.3s ease-in-out;
+}
+
+.sidenav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidenav li {
+  margin: 20px 0;
+}
+
+.sidenav a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.1rem;
+  padding: 10px 20px;
+  display: block;
+  transition: background 0.3s, color 0.3s;
+}
+
+.sidenav a:hover {
+  background: #61dafb;
+  color: #181a1b;
+  border-radius: 5px;
+}
+
+body.dark-mode .sidenav {
+  --sidenav-bg: #121212;
+  --sidenav-color: #ffffff;
+}
+
+body.light-mode .sidenav {
+  --sidenav-bg: #ffffff;
+  --sidenav-color: #000000;
+}

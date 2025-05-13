@@ -1,0 +1,118 @@
+.skills {
+  background: var(--section-bg);
+  color: var(--text);
+  padding: 80px 20px;
+}
+.skills-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.section-title {
+  color: var(--accent);
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 25%;
+  width: 50%;
+  height: 3px;
+  background: var(--accent);
+  border-radius: 2px;
+  animation: expand 2s ease-in-out infinite;
+}
+@keyframes expand {
+  0%, 100% { width: 50%; }
+  50% { width: 70%; }
+}
+.skills-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+.skill-category {
+  background: var(--card-bg);
+  border-radius: 10px;
+  padding: 25px;
+  box-shadow: 0 5px 15px var(--shadow);
+  transition: transform 0.3s;
+  animation: fadeIn 0.8s ease-out forwards;
+  opacity: 0;
+}
+.skill-category:nth-child(1) { animation-delay: 0.1s; }
+.skill-category:nth-child(2) { animation-delay: 0.2s; }
+.skill-category:nth-child(3) { animation-delay: 0.3s; }
+.skill-category:nth-child(4) { animation-delay: 0.4s; }
+.skill-category:nth-child(5) { animation-delay: 0.5s; }
+.skill-category:hover {
+  transform: translateY(-5px);
+}
+.category-title {
+  color: var(--accent);
+  font-size: 1.3rem;
+  margin-bottom: 20px;
+  text-align: center;
+  position: relative;
+  padding-bottom: 10px;
+}
+.category-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 30%;
+  width: 40%;
+  height: 2px;
+  background: var(--accent);
+}
+.skill-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.skill-item {
+  margin-bottom: 10px;
+}
+.skill-name {
+  font-size: 1rem;
+  margin-bottom: 5px;
+}
+.skill-bar {
+  height: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 5px;
+  overflow: hidden;
+}
+.skill-progress {
+  height: 100%;
+  background: var(--accent);
+  border-radius: 5px;
+  animation: progressAnimation 1.5s ease-out forwards;
+  transform-origin: left;
+  transform: scaleX(0);
+}
+@keyframes progressAnimation {
+  to { transform: scaleX(1); }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@media (max-width: 768px) {
+  .skills-content {
+    grid-template-columns: 1fr;
+  }
+}
