@@ -182,6 +182,48 @@ body.light-mode {
   padding-top: 60px; /* Add some extra padding at the top */
 }
 
+/* Mobile navigation enhancements */
+.sidenav-toggle {
+  display: block;
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  z-index: 1100;
+  background: var(--accent);
+  color: var(--card-bg);
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  transition: background 0.3s, transform 0.3s;
+}
+
+.sidenav-toggle:hover {
+  background: var(--accent-hover);
+  transform: scale(1.05);
+}
+
+/* Add overlay when sidenav is open on mobile */
+.sidenav-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 1500;
+}
+
+.sidenav-open .sidenav-overlay {
+  display: block;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
   .App {

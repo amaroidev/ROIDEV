@@ -30,10 +30,13 @@ function App() {
 
   const toggleSideNav = () => {
     setSideNavVisible(!isSideNavVisible);
+    // Toggle body class for overlay effect
+    document.body.classList.toggle('sidenav-open', !isSideNavVisible);
   };
 
-  const toggleDarkMode = () => {
-    setDarkMode(!isDarkMode);
+  const closeSideNav = () => {
+    setSideNavVisible(false);
+    document.body.classList.remove('sidenav-open');
   };
 
   return (
@@ -44,7 +47,12 @@ function App() {
       <button className="dark-mode-toggle" onClick={toggleDarkMode}>
         {isDarkMode ? <FaSun /> : <FaMoon />}
       </button>
-      {isSideNavVisible && <SideNav />}
+      {isSideNavVisible && (
+        <>
+          <div className="sidenav-overlay" onClick={closeSideNav}></div>
+          <SideNav closeSideNav={closeSideNav} />
+        </>
+      )}
       <Navbar />
       <Hero />
       <About />

@@ -56,9 +56,13 @@
 }
 
 @media (max-width: 768px) {
+  .navbar {
+    padding: 10px 0;
+  }
+  
   .navbar-container {
     flex-direction: column;
-    padding: 10px 5px;
+    padding: 5px;
   }
   
   .logo {
@@ -68,22 +72,12 @@
   }
   
   .nav-links {
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-right: 0;
-  }
-  
-  .nav-links li {
-    margin: 5px 10px;
+    display: none; /* Hide regular navbar on mobile - use sidenav instead */
   }
 }
 
 @media (max-width: 480px) {
   .navbar {
-    padding: 10px 0;
-  }
-  
-  .nav-links a {
-    font-size: 0.9rem;
+    padding: 8px 0;
   }
 }
