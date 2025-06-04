@@ -5,6 +5,16 @@ import './Slideshow.css';
 const Projects = () => {
   const projects = [
     {
+      title: 'Universal Video Downloader',
+      description: 'A powerful, modern web application for downloading videos from YouTube, Instagram, Twitter, TikTok, and 1000+ other platforms.',
+      link: 'https://github.com/FCM4100819823/All-Sites-Downloader',
+      slides: [
+        { src: process.env.PUBLIC_URL + '/images/universalvideodownloader1.png', alt: 'Universal Video Downloader Main Interface' },
+        { src: process.env.PUBLIC_URL + '/images/universalvideodownloader2.png', alt: 'Download History' },
+        { src: process.env.PUBLIC_URL + '/images/universalvideodownloader3.png', alt: 'Batch Download & Media Tools' }
+      ]
+    },
+    {
       title: 'Inventory System Management',
       description: 'A backend repository for a chemical factory, featuring employee management, inventory tracking, and RESTful API endpoints.',
       link: 'https://github.com/FCM4100819823/Inventory_System_Management',
