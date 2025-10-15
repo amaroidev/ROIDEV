@@ -28,7 +28,7 @@ const Contact = () => (
             <div className="contact-card">
               <i className="fab fa-github contact-icon"></i>
               <h3>GitHub</h3>
-              <a href="https://github.com/FCM4100819823" target="_blank" rel="noopener noreferrer">FCM4100819823</a>
+              <a href="https://github.com/amaroidev" target="_blank" rel="noopener noreferrer">amaroidev</a>
             </div>
             
             <div className="contact-card">

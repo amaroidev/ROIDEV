@@ -1,36 +1,51 @@
 .projects {
   background: var(--section-bg);
   color: var(--text);
-  padding: 80px 20px;
+  padding: 100px 20px;
+  position: relative;
+}
+
+.projects::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 70% 30%, rgba(97, 218, 251, 0.05) 0%, transparent 50%);
+  pointer-events: none;
 }
 
 .projects-container {
   max-width: 1200px;
   margin: 0 auto;
+  position: relative;
+  z-index: 1;
 }
 
 .section-title {
   color: var(--accent);
-  font-size: 2.5rem;
-  margin-bottom: 2rem;
+  font-size: 2.8rem;
+  margin-bottom: 3rem;
   text-align: center;
   position: relative;
   display: inline-block;
-  padding-bottom: 10px;
+  padding-bottom: 15px;
   left: 50%;
   transform: translateX(-50%);
+  font-weight: 700;
 }
 
 .section-title::after {
   content: '';
   position: absolute;
   bottom: 0;
-  left: 25%;
-  width: 50%;
-  height: 3px;
-  background: var(--accent);
+  left: 30%;
+  width: 40%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--accent), #9061fb);
   border-radius: 2px;
-  animation: expand 2s ease-in-out infinite;
+  animation: expandWidth 2s ease-in-out infinite;
 }
 
 .projects-content {
@@ -41,15 +56,45 @@
 
 .project-card {
   background: var(--card-bg);
-  border-radius: 10px;
-  padding: 25px;
-  box-shadow: 0 5px 15px var(--shadow);
-  transition: all 0.3s ease;
+  border-radius: 15px;
+  padding: 30px;
+  box-shadow: 0 8px 25px var(--shadow);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   cursor: pointer;
-  animation: fadeIn 0.8s ease-out forwards;
+  animation: fadeInUp 0.8s ease-out forwards;
   opacity: 0;
+  border: 1px solid rgba(97, 218, 251, 0.1);
+  position: relative;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
+}
+
+.project-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(97, 218, 251, 0.1), transparent);
+  transition: left 0.5s;
+}
+
+.project-card:hover::before {
+  left: 100%;
+}
+
+.project-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  border-color: var(--accent);
+}
+
+.project-card.active {
+  transform: scale(1.05);
+  box-shadow: 0 20px 40px rgba(97, 218, 251, 0.3);
+  border-color: var(--accent);
 }
 
 .project-card:nth-child(1) { animation-delay: 0.1s; }
@@ -96,13 +141,91 @@
   color: var(--accent-hover);
 }
 
-@keyframes fadeIn {
+@keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(30px);
   }
   to {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+@keyframes expandWidth {
+  0%, 100% {
+    width: 40%;
+  }
+  50% {
+    width: 60%;
+  }
+}
+
+/* Request access modal styles */
+.request-access-btn {
+  background: linear-gradient(90deg, var(--accent), #9061fb);
+  color: white;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.request-access-btn:hover {
+  opacity: 0.95;
+}
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 1000;
+  border: none;
+}
+
+.request-modal {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--card-bg);
+  color: var(--text);
+  padding: 24px;
+  z-index: 1001;
+  border-radius: 12px;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+  width: 90%;
+  max-width: 520px;
+  border: 1px solid rgba(97,218,251,0.08);
+}
+
+.modal-close {
+  position: absolute;
+  right: 12px;
+  top: 8px;
+  background: transparent;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.mailto-btn {
+  display: inline-block;
+  background: linear-gradient(90deg, #4fa8c7, #9061fb);
+  color: white;
+  padding: 10px 14px;
+  border-radius: 8px;
+  text-decoration: none;
+}
+
+.mailto-btn:hover {
+  opacity: 0.95;
+}
+
+.modal-note {
+  margin-top: 8px;
+  font-size: 0.9rem;
+  color: var(--text);
+  opacity: 0.8;
 }

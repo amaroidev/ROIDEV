@@ -1,10 +1,24 @@
 .hero {
   background: var(--section-bg);
   color: var(--text);
-  padding: 100px 20px 60px;
+  padding: 120px 20px 80px;
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 20% 80%, rgba(97, 218, 251, 0.1) 0%, transparent 50%),
+              radial-gradient(circle at 80% 20%, rgba(144, 97, 251, 0.1) 0%, transparent 50%);
+  pointer-events: none;
 }
 
 .hero-container {
@@ -12,39 +26,42 @@
   align-items: center;
   max-width: 1200px;
   width: 100%;
-  gap: 40px;
+  gap: 60px;
+  position: relative;
+  z-index: 1;
 }
 
 .hero-text {
   flex: 2;
   text-align: left;
-  animation: fadeIn 1s ease-in-out;
-}
-
-.hero-text p {
-  font-size: 1.2rem;
-  color: #555;
+  animation: slideInLeft 1s ease-out;
 }
 
 .hero h1 {
-  font-size: 3.5rem;
+  font-size: 3.8rem;
   margin-bottom: 0.5rem;
   color: var(--heading);
-  background: linear-gradient(90deg, var(--accent), #9061fb);
+  background: linear-gradient(135deg, var(--accent), #9061fb, #ff6b6b);
+  background-size: 200% 200%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientShift 3s ease-in-out infinite;
+  font-weight: 700;
 }
 
 .hero h2 {
-  font-size: 1.8rem;
+  font-size: 1.9rem;
   color: var(--accent);
   margin-bottom: 0.5rem;
+  font-weight: 500;
 }
 
 .hero h3 {
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   color: var(--text);
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
+  opacity: 0.9;
 }
 
 .hero-icons {
@@ -121,6 +138,27 @@
 .hero-social a:hover {
   color: var(--accent);
   transform: translateY(-3px);
+}
+
+/* Animations */
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes gradientShift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
 }
 
 /* Mobile responsiveness */
