@@ -11,10 +11,15 @@ const About = () => (
             Welcome to My Portfolio <span className="wave">👋</span>
           </p>
           <p className="description">
-            Hi there! I'm Richard Kwaku Opoku, a passionate 200L Computer Science and Engineering student. I love solving
+            Hi there! I'm Richard Kwaku Opoku, a passionate 300L Computer Science and Engineering student. I love solving
             problems, building innovative solutions, and contributing to open-source projects. This portfolio showcases
             some of my work, skills, and achievements.
           </p>
+          <div className="focus-chips">
+            <span className="chip">Full‑Stack Web</span>
+            <span className="chip">Mobile (React Native)</span>
+            <span className="chip">UI/UX & Animations</span>
+          </div>
           <div className="about-details">
             <div className="detail-item">
               <span className="detail-icon">🎓</span>
@@ -32,6 +37,10 @@ const About = () => (
               <span className="detail-icon">🎨</span>
               <span className="detail-text">Graphic Designer</span>
             </div>
+          </div>
+          <div className="about-cta">
+            <a href="#projects" className="btn primary">View Projects</a>
+            <a href="#contact" className="btn outline">Contact Me</a>
           </div>
         </div>
         <div className="about-stats">

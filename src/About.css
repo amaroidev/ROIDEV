@@ -83,6 +83,21 @@
   opacity: 0.9;
 }
 
+.focus-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+.chip {
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(97,218,251,0.15);
+  background: rgba(97,218,251,0.08);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
 .about-details {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -178,6 +193,29 @@
   opacity: 0.8;
   font-weight: 500;
 }
+
+.about-cta {
+  display: flex;
+  gap: 12px;
+  margin-top: 18px;
+}
+.btn {
+  display: inline-block;
+  padding: 10px 14px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 700;
+  border: 1px solid rgba(97,218,251,0.15);
+}
+.btn.primary {
+  background: linear-gradient(90deg, var(--accent), #9061fb);
+  color: #fff;
+}
+.btn.outline {
+  background: transparent;
+  color: var(--accent);
+}
+.btn:hover { opacity: 0.95; }
 
 /* Animation keyframes */
 @keyframes wave {

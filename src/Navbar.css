@@ -1,10 +1,16 @@
 .navbar {
-  background: #181a1b;
+  background: rgba(24, 26, 27, 0.5);
+  backdrop-filter: blur(10px);
   padding: 15px 0;
   position: sticky;
   top: 0;
   z-index: 1000;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.navbar.scrolled {
+  background: rgba(24, 26, 27, 0.8);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.25);
 }
 
 .navbar-container {
@@ -32,11 +38,28 @@
   color: #fff;
   text-decoration: none;
   font-size: 1.1rem;
-  transition: color 0.3s;
+  position: relative;
+  transition: color 0.3s ease;
 }
 
 .navbar a:hover {
   color: #61dafb;
+}
+
+.navbar a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--accent);
+  transition: width 0.3s ease-in-out;
+}
+
+.navbar a:hover::after {
+  width: 100%;
 }
 
 .logo {

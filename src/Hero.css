@@ -140,6 +140,10 @@
   transform: translateY(-3px);
 }
 
+.magnetic-icon {
+  transition: transform 0.2s ease-out;
+}
+
 /* Animations */
 @keyframes slideInLeft {
   from {

@@ -58,7 +58,7 @@
 
 .contact-methods {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(3, 1fr); /* 3 x 3 on desktop */
   gap: 25px;
 }
 
@@ -128,6 +128,12 @@
 
 @media (max-width: 768px) {
   .contact-methods {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr; /* stack on small screens */
+  }
+}
+
+@media (max-width: 1024px) {
+  .contact-methods {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns on tablets */
   }
 }

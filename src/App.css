@@ -31,6 +31,20 @@ body {
   transition: background-color 0.5s ease, color 0.5s ease;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+/* Desktop-only custom cursor (hide default) */
+@media (pointer: fine) {
+  body {
+    cursor: none;
+  }
+  a, button, .project-card {
+    cursor: none;
+  }
+}
+
 .App {
   text-align: center;
 }
@@ -133,11 +147,27 @@ a, button {
   transform: scale(1.1);
 }
 
+.sidenav-toggle.active {
+  transform: rotate(90deg) scale(1.05);
+}
+
 /* Section styling */
 .hero, .about, .skills, .projects, .contact {
   background: var(--section-bg);
   padding: 80px 20px;
   transition: background 0.5s ease;
+}
+
+/* Scroll reveal base */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 600ms ease, transform 600ms ease;
+}
+
+.reveal.in-view {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* Add animations */
@@ -216,12 +246,34 @@ body.light-mode {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0,0,0,0.5);
+  background: rgba(0,0,0,0.35);
+  backdrop-filter: blur(2px);
   z-index: 1500;
 }
 
 .sidenav-open .sidenav-overlay {
   display: block;
+}
+
+/* Back to top button */
+.to-top-btn {
+  position: fixed;
+  right: 20px;
+  bottom: 24px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #111;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 16px var(--shadow);
+  z-index: 1200;
+}
+.to-top-btn:hover {
+  background: var(--accent-hover);
 }
 
 /* Enhance mobile navigation controls */

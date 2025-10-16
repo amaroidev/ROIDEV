@@ -52,6 +52,9 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 30px;
+  perspective: 1000px;
+  align-items: stretch;
+  align-content: stretch;
 }
 
 .project-card {
@@ -68,6 +71,7 @@
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  transform-style: preserve-3d;
 }
 
 .project-card::before {
@@ -86,9 +90,16 @@
 }
 
 .project-card:hover {
-  transform: translateY(-10px) scale(1.02);
+  /* Keep hover subtle; JS handles tilt/rotation */
+  transform: translateY(-6px) scale(1.01);
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
   border-color: var(--accent);
+}
+
+.project-card .slide-image {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
 }
 
 .project-card.active {
@@ -102,9 +113,7 @@
 .project-card:nth-child(3) { animation-delay: 0.3s; }
 .project-card:nth-child(4) { animation-delay: 0.4s; }
 
-.project-card:hover {
-  transform: translateY(-10px);
-}
+/* Removed extra aggressive hover tilt to avoid conflict with JS tilt */
 
 .project-card.active {
   transform: scale(1.02);
@@ -118,8 +127,32 @@
 }
 
 .project-card p {
-  margin-bottom: 20px;
-  flex-grow: 1;
+  margin-bottom: 14px;
+}
+
+/* Uniform card layout */
+.project-card {
+  min-height: 540px; /* keeps cards visually consistent on desktop */
+}
+
+.project-title {
+  display: -webkit-box;
+  line-clamp: 2;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.project-description {
+  display: -webkit-box;
+  line-clamp: 3;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.project-actions {
+  margin-top: auto;
 }
 
 .project-link {
@@ -139,6 +172,23 @@
 
 .project-link:hover {
   color: var(--accent-hover);
+}
+
+/* Tech stack badges */
+.tech-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+}
+.tech-badge {
+  background: rgba(97, 218, 251, 0.08);
+  color: var(--text);
+  border: 1px solid rgba(97, 218, 251, 0.12);
+  padding: 6px 8px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
 }
 
 @keyframes fadeInUp {

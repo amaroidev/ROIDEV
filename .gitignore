@@ -26,3 +26,9 @@ yarn-error.log*
 
 # Local Netlify folder
 .netlify
+
+.CV_Richard_Kwaku_Opoku.md
+.CV_Richard_Kwaku_Opoku.tex
+.CV_Richard_Kwaku_Opoku.txt
+
+.vscode/

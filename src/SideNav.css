@@ -4,14 +4,19 @@
   left: 0;
   height: 100%;
   width: 250px;
-  background: var(--card-bg, #181a1b);
+  background: rgba(24, 26, 27, 0.6);
+  backdrop-filter: blur(10px);
   padding: 0;
   box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
   z-index: 2000;
-  transform: translateX(0);
-  transition: transform 0.3s ease-in-out;
+  transform: translateX(-110%);
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
   display: flex;
   flex-direction: column;
+}
+
+.sidenav-open .sidenav {
+  transform: translateX(0);
 }
 
 .sidenav-content {
@@ -78,6 +83,7 @@
   background: rgba(97, 218, 251, 0.1);
   color: var(--accent, #61dafb);
   border-left: 3px solid var(--accent, #61dafb);
+  transform: translateX(5px);
 }
 
 /* Mobile optimizations */
