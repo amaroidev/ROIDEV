@@ -1,16 +1,31 @@
 .navbar {
-  background: rgba(24, 26, 27, 0.5);
-  backdrop-filter: blur(10px);
+  background: rgba(24, 26, 27, 0.6);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
   padding: 15px 0;
   position: sticky;
   top: 0;
   z-index: 1000;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  border-bottom: 1px solid rgba(97, 218, 251, 0.1);
+  transition: all 0.4s ease;
+}
+
+.light .navbar {
+  background: rgba(255, 255, 255, 0.6);
+  border-bottom: 1px solid rgba(97, 218, 251, 0.15);
 }
 
 .navbar.scrolled {
-  background: rgba(24, 26, 27, 0.8);
-  box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+  background: rgba(24, 26, 27, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.25);
+  border-bottom: 1px solid rgba(97, 218, 251, 0.2);
+}
+
+.light .navbar.scrolled {
+  background: rgba(255, 255, 255, 0.85);
 }
 
 .navbar-container {
@@ -40,6 +55,10 @@
   font-size: 1.1rem;
   position: relative;
   transition: color 0.3s ease;
+}
+
+.light .navbar a {
+  color: #1a1a1a;
 }
 
 .navbar a:hover {

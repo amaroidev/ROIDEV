@@ -1,12 +1,13 @@
 .hero {
-  background: var(--section-bg);
+  background: transparent;
   color: var(--text);
-  padding: 120px 20px 80px;
+  padding: 120px 20px 180px;
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
-  overflow: hidden;
+  overflow: visible;
+  min-height: 100vh;
 }
 
 .hero::before {
@@ -16,23 +17,26 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: radial-gradient(circle at 20% 80%, rgba(97, 218, 251, 0.1) 0%, transparent 50%),
-              radial-gradient(circle at 80% 20%, rgba(144, 97, 251, 0.1) 0%, transparent 50%);
+  background: radial-gradient(circle at 20% 80%, rgba(97, 218, 251, 0.05) 0%, transparent 50%),
+              radial-gradient(circle at 80% 20%, rgba(144, 97, 251, 0.05) 0%, transparent 50%);
   pointer-events: none;
 }
 
 .hero-container {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
+  justify-content: space-between;
   max-width: 1200px;
   width: 100%;
   gap: 60px;
   position: relative;
   z-index: 1;
+  padding-top: 40px;
 }
 
 .hero-text {
-  flex: 2;
+  flex: 1;
+  min-width: 400px;
   text-align: left;
   animation: slideInLeft 1s ease-out;
 }
@@ -80,26 +84,37 @@
 }
 
 .hero-image {
-  flex: 1;
+  flex: 0 0 auto;
   display: flex;
   justify-content: center;
   align-items: center;
-  animation: floatAnimation 4s ease-in-out infinite;
 }
 
 .profile-picture {
-  width: 280px;
-  height: 280px;
+  width: 350px;
+  height: 350px;
   border-radius: 20px;
-  border: 5px solid var(--accent);
+  border: 3px solid var(--accent);
   object-fit: cover;
-  box-shadow: 0 10px 30px var(--shadow);
+  box-shadow: 0 10px 40px rgba(97, 218, 251, 0.3);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: profileFadeIn 1s ease-out;
+}
+
+@keyframes profileFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
 }
 
 .profile-picture:hover {
-  transform: scale(1.05);
-  box-shadow: 0 15px 40px var(--shadow);
+  transform: scale(1.05) rotate(2deg);
+  box-shadow: 0 15px 50px rgba(97, 218, 251, 0.5);
 }
 
 .download-cv {
@@ -107,20 +122,80 @@
   align-items: center;
   gap: 8px;
   margin-top: 20px;
-  padding: 12px 25px;
-  background: var(--accent);
-  color: #000;
+  padding: 14px 28px;
+  background: linear-gradient(135deg, rgba(97, 218, 251, 0.1), rgba(144, 97, 251, 0.1));
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: var(--accent);
   text-decoration: none;
-  border-radius: 30px;
+  border: 2px solid var(--accent);
+  clip-path: polygon(10px 0%, 100% 0%, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0% 100%, 0% 10px);
   font-weight: bold;
+  font-family: 'Courier New', monospace;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 0 20px rgba(97, 218, 251, 0.2),
+              inset 0 0 20px rgba(97, 218, 251, 0.05);
+  position: relative;
+  overflow: hidden;
+}
+
+.download-cv::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, var(--accent), #9061fb, var(--accent));
+  background-size: 200% 200%;
+  animation: borderGlow 3s linear infinite;
+  clip-path: polygon(10px 0%, 100% 0%, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0% 100%, 0% 10px);
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.download-cv::after {
+  content: '⟩';
+  position: absolute;
+  right: 15px;
+  opacity: 0;
+  transform: translateX(-10px);
   transition: all 0.3s;
-  box-shadow: 0 4px 15px rgba(97, 218, 251, 0.4);
 }
 
 .download-cv:hover {
-  background: var(--accent-hover);
-  transform: translateY(-3px);
-  box-shadow: 0 10px 20px rgba(97, 218, 251, 0.5);
+  transform: translateY(-3px) translateX(3px);
+  box-shadow: 0 0 30px rgba(97, 218, 251, 0.4),
+              0 5px 20px rgba(97, 218, 251, 0.3),
+              inset 0 0 30px rgba(97, 218, 251, 0.1);
+  background: linear-gradient(135deg, rgba(97, 218, 251, 0.15), rgba(144, 97, 251, 0.15));
+  padding-right: 35px;
+}
+
+.download-cv:hover::before {
+  opacity: 0.3;
+}
+
+.download-cv:hover::after {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.download-cv:active {
+  transform: translateY(-1px) translateX(1px);
+}
+
+@keyframes borderGlow {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
 }
 
 .hero-social {
@@ -165,24 +240,166 @@
   }
 }
 
+/* Laptop in top-right corner */
+.laptop-corner {
+  position: absolute;
+  top: 80px;
+  right: 40px;
+  width: 350px;
+  z-index: 5;
+  animation: fadeInUp 1s ease-out 0.3s backwards;
+}
+
+/* Static availability badge - glass overlay */
+.availability-badge {
+  position: fixed;
+  top: 120px;
+  right: 30px;
+  background: rgba(30, 30, 30, 0.75);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(97, 218, 251, 0.3);
+  border-radius: 50px;
+  padding: 12px 24px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  z-index: 999;
+  animation: slideInRight 0.8s ease-out 0.5s backwards;
+  transition: all 0.3s ease;
+}
+
+.dark .availability-badge {
+  background: rgba(30, 30, 30, 0.75);
+  color: #fff;
+}
+
+.light .availability-badge {
+  background: rgba(255, 255, 255, 0.75);
+  color: #1a1a1a;
+  border: 1px solid rgba(97, 218, 251, 0.4);
+}
+
+.availability-badge:hover {
+  transform: translateX(-5px);
+  box-shadow: 0 10px 40px rgba(97, 218, 251, 0.4);
+  border-color: rgba(97, 218, 251, 0.6);
+}
+
+.status-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #4ade80;
+  box-shadow: 0 0 10px #4ade80;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.badge-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(97, 218, 251, 0.2) 0%, transparent 70%);
+  border-radius: 50px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.availability-badge:hover .badge-glow {
+  opacity: 1;
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+    box-shadow: 0 0 10px #4ade80;
+  }
+  50% {
+    opacity: 0.6;
+    box-shadow: 0 0 20px #4ade80;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+    box-shadow: 0 0 10px #4ade80;
+  }
+  50% {
+    opacity: 0.6;
+    box-shadow: 0 0 20px #4ade80;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* Mobile responsiveness */
 @media (max-width: 768px) {
   .hero-container {
     flex-direction: column;
     text-align: center;
+    gap: 40px;
   }
 
   .hero-image {
     margin-bottom: 20px;
+    order: -1;
   }
   
   .hero-text {
     padding: 0 10px;
+    text-align: center;
+    min-width: auto;
   }
   
   .profile-picture {
-    width: 200px;
-    height: 200px;
+    width: 240px;
+    height: 240px;
+  }
+  
+  .laptop-corner {
+    position: relative;
+    top: auto;
+    right: auto;
+    width: 300px;
+    margin: 20px auto;
+  }
+  
+  .availability-badge {
+    position: fixed;
+    top: auto;
+    bottom: 20px;
+    right: 20px;
+    left: 20px;
+    justify-content: center;
   }
 }
 
@@ -197,5 +414,9 @@
   
   .hero h3 {
     font-size: 0.9rem;
+  }
+  
+  .laptop-corner {
+    width: 250px;
   }
 }

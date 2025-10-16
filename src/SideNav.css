@@ -15,6 +15,10 @@
   flex-direction: column;
 }
 
+.light .sidenav {
+  background: rgba(255, 255, 255, 0.85);
+}
+
 .sidenav-open .sidenav {
   transform: translateX(0);
 }
@@ -77,6 +81,10 @@
   display: block;
   transition: background 0.3s, color 0.3s;
   border-left: 3px solid transparent;
+}
+
+.light .sidenav a {
+  color: #1a1a1a;
 }
 
 .sidenav a:hover {

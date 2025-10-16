@@ -1,6 +1,7 @@
 import React from 'react';
 import './Hero.css';
 import { FaGithub, FaLinkedin, FaEnvelope, FaDownload } from 'react-icons/fa';
+import Laptop3D from './Laptop3D';
 
 const Hero = () => {
   React.useEffect(() => {
@@ -21,13 +22,18 @@ const Hero = () => {
 
   return (
     <section id="hero" className="hero">
+      {/* Laptop in top-right corner */}
+      <div className="laptop-corner">
+        <Laptop3D />
+      </div>
+
       <div className="hero-container">
         <div className="hero-image">
           <img src={process.env.PUBLIC_URL + '/profile.jpg'} alt="Richard Kwaku Opoku" className="profile-picture" />
         </div>
         <div className="hero-text">
           <h1>Hi, I'm Richard Kwaku Opoku</h1>
-          <h2>300L Computer Science & Engineering Student</h2>
+          <h2>Full‑Stack Developer | CE Student</h2>
           <h3>University of Mines and Technology, Ghana</h3>
           <div className="hero-buttons">
             <a href={process.env.PUBLIC_URL + '/RICHARD KWAKU OPOKU.pdf'} className="download-cv" download>
@@ -46,6 +52,13 @@ const Hero = () => {
             </a>
           </div>
         </div>
+      </div>
+      
+      {/* Static glass overlay badge */}
+      <div className="availability-badge">
+        <div className="badge-glow"></div>
+        <span className="status-dot"></span>
+        Available for opportunities
       </div>
     </section>
   );

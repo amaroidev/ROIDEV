@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import './ParticlesBackground.css';
 
+/* eslint-disable react/no-this-in-sfc */
 const ParticlesBackground = () => {
   const canvasRef = useRef(null);
 
