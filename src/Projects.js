@@ -9,7 +9,8 @@ const Projects = () => {
       title: 'Universal Video Downloader',
       description:
         'A powerful, modern web application for downloading videos from YouTube, Instagram, Twitter, TikTok, and 1000+ other platforms.',
-      link: 'https://github.com/FCM4100819823/All-Sites-Downloader',
+      link: 'https://all-sites-downloader.onrender.com/',
+      linkLabel: 'Live Demo',
       tech: ['React', 'Node.js', 'Express', 'FFmpeg', 'JavaScript'],
       slides: [
         { src: process.env.PUBLIC_URL + '/images/universalvideodownloader1.png', alt: 'Universal Video Downloader Main Interface' },
