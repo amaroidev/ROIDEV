@@ -86,9 +86,9 @@ const Projects = () => {
       linkLabel: 'Live Demo',
       tech: ['React', 'Next.js', 'Vercel', 'WhatsApp API', 'CSS'],
       slides: [
-        { src: process.env.PUBLIC_URL + '/images/homechoice1.png', alt: 'HomeChoice Main Landing Page' },
-        { src: process.env.PUBLIC_URL + '/images/homechoice2.png', alt: 'Checkout & Delivery Options' },
-        { src: process.env.PUBLIC_URL + '/images/homechoice3.png', alt: 'Features & Contact Information' }
+        { src: process.env.PUBLIC_URL + '/images/homechoiceminimart1.png', alt: 'HomeChoice Main Landing Page' },
+        { src: process.env.PUBLIC_URL + '/images/homechoiceminimart2.png', alt: 'Checkout & Delivery Options' },
+        { src: process.env.PUBLIC_URL + '/images/homechoiceminimart3.png', alt: 'Features & Contact Information' }
       ]
     },
     {
