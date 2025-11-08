@@ -40,15 +40,19 @@
 
 .contact-content {
   margin-top: 40px;
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  gap: 40px;
+  align-items: start;
 }
 
 .contact-info {
-  text-align: center;
+  text-align: left;
 }
 
 .contact-text {
   max-width: 700px;
-  margin: 0 auto 40px;
+  margin: 0 0 40px;
 }
 
 .contact-text p {
@@ -135,6 +139,94 @@
   color: var(--accent-hover);
 }
 
+.contact-form {
+  background: var(--card-bg);
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 5px 18px var(--shadow);
+  border: 1px solid rgba(97, 218, 251, 0.08);
+  animation: fadeIn 0.8s ease-out forwards;
+  opacity: 0;
+  animation-delay: 0.2s;
+}
+
+.contact-form .form-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  font-weight: 600;
+  color: var(--heading);
+}
+
+.form-group input,
+.form-group textarea {
+  background: rgba(24, 26, 27, 0.35);
+  color: var(--text);
+  border: 1px solid rgba(97, 218, 251, 0.2);
+  border-radius: 8px;
+  padding: 12px 14px;
+  font-size: 1rem;
+  transition: border-color 0.3s, box-shadow 0.3s, background 0.3s;
+}
+
+.light .form-group input,
+.light .form-group textarea {
+  background: rgba(255, 255, 255, 0.85);
+  color: #1a1a1a;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(97, 218, 251, 0.15);
+  background: rgba(24, 26, 27, 0.5);
+}
+
+.light .form-group input:focus,
+.light .form-group textarea:focus {
+  background: rgba(255, 255, 255, 0.95);
+}
+
+.submit-button {
+  background: var(--accent);
+  color: #181a1b;
+  border: none;
+  padding: 14px 22px;
+  border-radius: 8px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s;
+  width: 100%;
+}
+
+.submit-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 25px rgba(97, 218, 251, 0.2);
+}
+
+.submit-button:active {
+  transform: translateY(0);
+}
+
+.form-status {
+  margin-top: 15px;
+  font-size: 0.95rem;
+  color: var(--accent);
+  line-height: 1.5;
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -147,8 +239,20 @@
 }
 
 @media (max-width: 768px) {
+  .contact-content {
+    grid-template-columns: 1fr;
+  }
+
   .contact-methods {
     grid-template-columns: 1fr; /* stack on small screens */
+  }
+
+  .contact-form .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-form {
+    padding: 25px 20px;
   }
 }
 

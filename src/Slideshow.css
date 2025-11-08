@@ -9,7 +9,7 @@
 .slide-image {
   width: 100%;
   height: 260px;
-  object-fit: cover; /* fill area without distortion */
+  object-fit: cover; 
   object-position: center;
   border-radius: 8px;
   box-shadow: 0 4px 12px var(--shadow);

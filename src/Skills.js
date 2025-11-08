@@ -7,48 +7,48 @@ const Skills = () => {
 
   const skillCategories = [
     {
-      title: "Languages",
+      title: "Programming & Scripting",
       skills: [
-        { name: "Python", level: 90 },
-        { name: "JavaScript", level: 85 },
-        { name: "HTML & CSS", level: 95 },
-        { name: "Java", level: 80 }
+        { name: "JavaScript (ES6+)", level: 85 },
+        { name: "Python", level: 82 },
+        { name: "C/C++", level: 72 },
+        { name: "Java", level: 68 }
       ]
     },
     {
-      title: "Frontend",
+      title: "Frontend Engineering",
       skills: [
-        { name: "React", level: 90 },
-        { name: "React Native", level: 85 },
-        { name: "CSS3", level: 90 },
-        { name: "Figma", level: 75 }
+        { name: "React & Hooks", level: 85 },
+        { name: "React Native", level: 78 },
+        { name: "HTML5 & Modern CSS", level: 90 },
+        { name: "UI/UX Prototyping (Figma)", level: 80 }
       ]
     },
     {
-      title: "Backend",
+      title: "Backend & Cloud",
       skills: [
-        { name: "Node.js", level: 85 },
-        { name: "Express.js", level: 85 },
-        { name: "Flask", level: 80 },
-        { name: "SQL & NoSQL", level: 80 }
+        { name: "Node.js & Express", level: 76 },
+        { name: "Python Flask", level: 72 },
+        { name: "REST & GraphQL APIs", level: 70 },
+        { name: "SQL (PostgreSQL) & MongoDB", level: 68 }
       ]
     },
     {
-      title: "Tools & Technologies",
+      title: "Embedded & Hardware",
       skills: [
-        { name: "Git & GitHub", level: 90 },
-        { name: "RESTful APIs", level: 85 },
-        { name: "AWS", level: 70 },
-        { name: "Bash", level: 75 }
+        { name: "Arduino & AVR", level: 86 },
+        { name: "ESP32 & IoT Prototyping", level: 82 },
+        { name: "Sensor Integration (I2C/SPI)", level: 75 },
+        { name: "PCB Design (Proteus)", level: 60 }
       ]
     },
     {
-      title: "Specializations",
+      title: "Tools & Practices",
       skills: [
-        { name: "A-Frame", level: 85 },
-        { name: "VR Development", level: 80 },
-        { name: "JavaFX", level: 75 },
-        { name: "Graphic Design", level: 85 }
+        { name: "Git, GitHub & GitLab", level: 88 },
+        { name: "CI/CD (Vercel, Netlify)", level: 76 },
+        { name: "Testing (Jest/PyTest)", level: 66 },
+        { name: "Agile & Technical Writing", level: 72 }
       ]
     }
   ];

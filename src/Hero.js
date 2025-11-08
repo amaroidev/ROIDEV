@@ -41,13 +41,32 @@ const Hero = () => {
             </a>
           </div>
           <div className="hero-social">
-            <a href="https://github.com/amaroidev" target="_blank" rel="noopener noreferrer" className="magnetic-icon">
+            <a
+              href="https://github.com/amaroidev"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="magnetic-icon"
+              aria-label="GitHub profile"
+              title="GitHub"
+            >
               <FaGithub />
             </a>
-            <a href="https://linkedin.com/in/richardkwakuopoku982" target="_blank" rel="noopener noreferrer" className="magnetic-icon">
+            <a
+              href="https://linkedin.com/in/richardkwakuopoku982"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="magnetic-icon"
+              aria-label="LinkedIn profile"
+              title="LinkedIn"
+            >
               <FaLinkedin />
             </a>
-            <a href="mailto:ce-rkopoku9823@st.umat.edu.gh" className="magnetic-icon">
+            <a
+              href="mailto:ce-rkopoku9823@st.umat.edu.gh"
+              className="magnetic-icon"
+              aria-label="Send me an email"
+              title="Email"
+            >
               <FaEnvelope />
             </a>
           </div>
