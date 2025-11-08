@@ -79,6 +79,19 @@ const Projects = () => {
       ]
     },
     {
+      title: 'HomeChoice Mini Mart — E-commerce Platform',
+      description:
+        'A modern e-commerce platform for neighborhood grocery delivery in Ghana. Features WhatsApp integration, real-time order tracking, flexible delivery windows, and multiple payment options including mobile money and cash on delivery.',
+      link: 'https://homechoice-gh.vercel.app',
+      linkLabel: 'Live Demo',
+      tech: ['React', 'Next.js', 'Vercel', 'WhatsApp API', 'CSS'],
+      slides: [
+        { src: process.env.PUBLIC_URL + '/images/homechoice1.png', alt: 'HomeChoice Main Landing Page' },
+        { src: process.env.PUBLIC_URL + '/images/homechoice2.png', alt: 'Checkout & Delivery Options' },
+        { src: process.env.PUBLIC_URL + '/images/homechoice3.png', alt: 'Features & Contact Information' }
+      ]
+    },
+    {
       title: 'Breast Cancer Companion App (Mobile — React Native & Expo)',
       description:
         "Mobile companion app for Android and iOS built with React Native and the Expo SDK. Provides clear symptom information, screening guidelines, preventive measures, and curated support resources. Focused on awareness and education (not for diagnosis).",
