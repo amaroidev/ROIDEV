@@ -77,6 +77,14 @@
   position: relative;
   overflow: hidden;
   border: 1px solid rgba(97, 218, 251, 0.1);
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  text-decoration: none;
+  gap: 10px;
+  cursor: pointer;
 }
 
 .contact-card::before {
@@ -90,6 +98,7 @@
   background: rgba(97, 218, 251, 0.1);
   transform: translate(-50%, -50%);
   transition: width 0.6s, height 0.6s;
+  pointer-events: none;
 }
 
 .contact-card:hover::before {
@@ -127,16 +136,24 @@
   font-size: 1.2rem;
 }
 
-.contact-card a {
+.contact-value {
   color: var(--accent);
-  text-decoration: none;
   transition: color 0.2s;
+  font-weight: 600;
+  word-break: break-word;
   display: block;
-  margin-top: 5px;
+  width: 100%;
+  line-height: 1.4;
 }
 
-.contact-card a:hover {
+.contact-card:hover .contact-value,
+.contact-card:focus-visible .contact-value {
   color: var(--accent-hover);
+}
+
+.contact-card:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
 }
 
 .contact-form {

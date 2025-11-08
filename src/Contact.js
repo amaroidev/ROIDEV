@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import './Contact.css';
 
 const Contact = () => {
@@ -9,6 +9,56 @@ const Contact = () => {
     message: ''
   });
   const [formStatus, setFormStatus] = useState('');
+
+  const contactMethods = useMemo(() => ([
+    {
+      label: 'Email',
+      value: 'richardkwakuopoku06@gmail.com',
+      href: 'mailto:richardkwakuopoku06@gmail.com',
+      iconClass: 'fas fa-envelope',
+      newTab: false,
+    },
+
+    {
+      label: 'LinkedIn',
+      value: 'richardkwakuopoku982',
+      href: 'https://linkedin.com/in/richardkwakuopoku982',
+      iconClass: 'fab fa-linkedin',
+      newTab: true,
+    },
+
+    {
+      label: 'GitHub',
+      value: 'amaroidev',
+      href: 'https://github.com/amaroidev',
+      iconClass: 'fab fa-github',
+      newTab: true,
+    },
+
+    {
+      label: 'WhatsApp',
+      value: '+233 50 859 7910',
+      href: 'https://wa.me/233508597910',
+      iconClass: 'fab fa-whatsapp',
+      newTab: true,
+    },
+
+    {
+      label: 'Phone',
+      value: '+233 55 150 0736',
+      href: 'tel:+233551500736',
+      iconClass: 'fas fa-phone',
+      newTab: false,
+    },
+
+    {
+      label: 'Instagram',
+      value: 'richie_roi',
+      href: 'https://www.instagram.com/richie_roi',
+      iconClass: 'fab fa-instagram',
+      newTab: true,
+    }
+  ]), []);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -27,7 +77,7 @@ const Contact = () => {
 
     const mailSubject = subject.trim() ? subject : `Portfolio inquiry from ${name}`;
     const mailBody = `Name: ${name}\nEmail: ${email}\n\n${message}`;
-    const mailtoLink = `mailto:ce-rkopoku9823@st.umat.edu.gh?subject=${encodeURIComponent(mailSubject)}&body=${encodeURIComponent(mailBody)}`;
+    const mailtoLink = `mailto:richardkwakuopoku06@gmail.com?subject=${encodeURIComponent(mailSubject)}&body=${encodeURIComponent(mailBody)}`;
 
     if (typeof window !== 'undefined') {
       window.location.href = mailtoLink;
@@ -49,41 +99,20 @@ const Contact = () => {
             </div>
 
             <div className="contact-methods">
-              <div className="contact-card">
-                <i className="fas fa-envelope contact-icon" aria-hidden="true"></i>
-                <h3>Email</h3>
-                <a href="mailto:ce-rkopoku9823@st.umat.edu.gh">ce-rkopoku9823@st.umat.edu.gh</a>
-              </div>
-
-              <div className="contact-card">
-                <i className="fab fa-linkedin contact-icon" aria-hidden="true"></i>
-                <h3>LinkedIn</h3>
-                <a href="https://linkedin.com/in/richardkwakuopoku982" target="_blank" rel="noopener noreferrer">richardkwakuopoku982</a>
-              </div>
-
-              <div className="contact-card">
-                <i className="fab fa-github contact-icon" aria-hidden="true"></i>
-                <h3>GitHub</h3>
-                <a href="https://github.com/amaroidev" target="_blank" rel="noopener noreferrer">amaroidev</a>
-              </div>
-
-              <div className="contact-card">
-                <i className="fab fa-whatsapp contact-icon" aria-hidden="true"></i>
-                <h3>WhatsApp</h3>
-                <a href="https://wa.me/233508597910" target="_blank" rel="noopener noreferrer">+233 50 859 7910</a>
-              </div>
-
-              <div className="contact-card">
-                <i className="fas fa-phone contact-icon" aria-hidden="true"></i>
-                <h3>Phone</h3>
-                <a href="tel:+233551500736">+233 55 150 0736</a>
-              </div>
-
-              <div className="contact-card">
-                <i className="fab fa-instagram contact-icon" aria-hidden="true"></i>
-                <h3>Instagram</h3>
-                <a href="https://www.instagram.com/richie_roi" target="_blank" rel="noopener noreferrer">richie_roi</a>
-              </div>
+              {contactMethods.map(({ label, value, href, iconClass, newTab }) => (
+                <a
+                  key={label}
+                  className="contact-card"
+                  href={href}
+                  target={newTab ? '_blank' : undefined}
+                  rel={newTab ? 'noopener noreferrer' : undefined}
+                  aria-label={`${label}: ${value}`}
+                >
+                  <i className={`${iconClass} contact-icon`} aria-hidden="true"></i>
+                  <h3>{label}</h3>
+                  <span className="contact-value">{value}</span>
+                </a>
+              ))}
             </div>
           </div>
 

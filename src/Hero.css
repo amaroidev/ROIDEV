@@ -208,15 +208,41 @@
   color: var(--text);
   font-size: 1.5rem;
   transition: all 0.3s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  position: relative;
+  overflow: hidden;
 }
 
-.hero-social a:hover {
+.hero-social a::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: rgba(97, 218, 251, 0.1);
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+
+.hero-social a:hover,
+.hero-social a:focus-visible {
   color: var(--accent);
   transform: translateY(-3px);
 }
 
+.hero-social a:hover::after,
+.hero-social a:focus-visible::after {
+  opacity: 1;
+}
+
 .magnetic-icon {
   transition: transform 0.2s ease-out;
+  will-change: transform;
 }
 
 /* Animations */

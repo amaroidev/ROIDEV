@@ -6,18 +6,38 @@ import Laptop3D from './Laptop3D';
 const Hero = () => {
   React.useEffect(() => {
     const icons = document.querySelectorAll('.magnetic-icon');
-    icons.forEach(icon => {
-      icon.addEventListener('mousemove', (e) => {
-        const { offsetX, offsetY, target } = e;
-        const { clientWidth, clientHeight } = target;
-        const x = (offsetX / clientWidth - 0.5) * 30;
-        const y = (offsetY / clientHeight - 0.5) * 30;
-        icon.style.transform = `translate(${x}px, ${y}px)`;
-      });
-      icon.addEventListener('mouseleave', () => {
-        icon.style.transform = 'translate(0, 0)';
-      });
+    const listeners = [];
+
+    icons.forEach((icon) => {
+      const handleMove = (event) => {
+        const rect = icon.getBoundingClientRect();
+        if (!rect.width || !rect.height) return;
+
+        const relativeX = (event.clientX - rect.left) / rect.width - 0.5;
+        const relativeY = (event.clientY - rect.top) / rect.height - 0.5;
+
+        const translateX = relativeX * 20;
+        const translateY = relativeY * 20;
+
+        icon.style.transform = `translate3d(${translateX}px, ${translateY}px, 0)`;
+      };
+
+      const handleLeave = () => {
+        icon.style.transform = 'translate3d(0, 0, 0)';
+      };
+
+      icon.addEventListener('mousemove', handleMove);
+      icon.addEventListener('mouseleave', handleLeave);
+
+      listeners.push({ icon, handleMove, handleLeave });
     });
+
+    return () => {
+      listeners.forEach(({ icon, handleMove, handleLeave }) => {
+        icon.removeEventListener('mousemove', handleMove);
+        icon.removeEventListener('mouseleave', handleLeave);
+      });
+    };
   }, []);
 
   return (
